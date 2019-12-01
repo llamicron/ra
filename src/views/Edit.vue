@@ -7,13 +7,16 @@
       <div id="editWindow">
         <textarea v-model="note.content" placeholder="Note content..." id="mainEdit" cols="30" rows="10"></textarea>
       </div>
-      <div id="renderWindow">{{ note.content }}</div>
+      <div id="renderWindow"></div>
     </div>
 
   </div>
 </template>
 
 <script>
+import showdown from 'showdown';
+import macro from "@/macros.js";
+
 export default {
   name: 'edit',
   props: ['note'],
@@ -24,14 +27,30 @@ export default {
   mounted() {
     window.edit = this;
 
-    // Listen for cmd+s
-    document.addEventListener("keydown", (e) => {
-      if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
-        e.preventDefault();
-        this.$parent.notify("Saved");
-        // TODO: Actually save it here
+    this.md = new showdown.Converter();
+
+    macro("Tab", false, () => {
+      let i = document.activeElement.selectionStart;
+      this.note.content = this.note.content.slice(0, i) + "    " + this.note.content.slice(i);
+      document.activeElement.selectionStart = i + 4;
+      // if (document.activeElement.nodeName == 'INPUT') {
+      // }
+    })
+
+    macro("s", true, () => {
+      this.$parent.notify('Saved.');
+      // TODO: Actually save here
+    })
+  },
+
+  watch: {
+    note: {
+      deep: true,
+      handler: function() {
+        let el = document.getElementById("renderWindow");
+        el.innerHTML = this.md.makeHtml(this.note.content);
       }
-    }, false);
+    }
   },
 
   methods: {
@@ -59,8 +78,8 @@ export default {
   }
 
   #renderWindow {
-    white-space: pre-wrap;
-    overflow: visible;
+    /* white-space: pre-wrap; */
+    /* overflow: visible; */
     width: 45vw;
 
     font-family: "Fira Code";

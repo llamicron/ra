@@ -17,6 +17,7 @@
 
 <script>
 import Notification from "@/components/Notification.vue";
+// import showdown from "showdown";
 
 import note from "@/testNote.js";
 import disableAutoComplete from "@/disableAutocomplete.js";
@@ -41,6 +42,8 @@ export default {
   mounted() {
     window.app = this;
     window.note = note;
+
+    // this.markdown = new showdown.Converter();
 
     window.setTimeout(() => {
       disableAutoComplete() ;
