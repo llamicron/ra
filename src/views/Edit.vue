@@ -55,6 +55,7 @@ export default {
     width: 45vw;
 
     font-family: "Fira Code";
+    font-size: 18px;
   }
 
   #editWindow {

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <nav>
       <ul class="nav-ul">
         <router-link class="nav-item" active-class="active" to="/edit">New;</router-link>
@@ -12,23 +11,37 @@
 
     <router-view :note="note"/>
 
+    <Notification ref="notif"></Notification>
   </div>
 </template>
 
 <script>
+import Notification from "@/components/Notification.vue";
+
 import note from "@/testNote.js";
 import disableAutoComplete from "@/disableAutocomplete.js";
 
 export default {
   name: 'app',
+  components: {
+    Notification
+  },
   data() {
     return {
-      note: note
+      note: note,
     }
   },
 
+  methods: {
+    notify(msg) {
+      this.$refs['notif'].show(msg);
+    },
+  },
+
   mounted() {
+    window.app = this;
     window.note = note;
+
     window.setTimeout(() => {
       disableAutoComplete();
     }, 500);
@@ -49,6 +62,7 @@ export default {
   body {
     margin: 0;
     color: var(--text-primary);
+    font-family: "Fira Code";
   }
 
   #app {
