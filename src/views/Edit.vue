@@ -1,11 +1,11 @@
 <template>
   <div id="edit">
-    <input type="text" placeholder="Name" id="noteName" v-model="noteName">
+    <input type="text" placeholder="Name" id="noteName" v-model="note.name">
     <div class="container">
       <div id="editWindow">
-        <textarea v-model="noteContent" id="mainEdit" cols="30" rows="10"></textarea>
+        <textarea v-model="note.content" id="mainEdit" cols="30" rows="10"></textarea>
       </div>
-      <div id="renderWindow">{{ noteContent }}</div>
+      <div id="renderWindow">{{ note.content }}</div>
     </div>
   </div>
 </template>
@@ -13,11 +13,13 @@
 <script>
 export default {
   name: 'edit',
+  props: ['note'],
   data() {
-    return {
-      noteName: "",
-      noteContent: "",
-    }
+    return {}
+  },
+
+  mounted() {
+    window.edit = this;
   }
 }
 </script>

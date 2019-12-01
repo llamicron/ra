@@ -10,10 +10,27 @@
     </nav>
 
 
-    <router-view/>
+    <router-view :note="note"/>
 
   </div>
 </template>
+
+<script>
+import note from "@/testNote.js";
+
+export default {
+  name: 'app',
+  data() {
+    return {
+      note: note
+    }
+  },
+
+  mounted() {
+    window.note = note;
+  }
+}
+</script>
 
 <style>
   :root {
