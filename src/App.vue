@@ -5,6 +5,7 @@
       <ul class="nav-ul">
         <router-link class="nav-item" active-class="active" to="/notes">Notes;</router-link>
         <router-link class="nav-item" active-class="active" to="/edit">New;</router-link>
+        <li class="nav-item" id="greeting">Welcome back, Luke.</li>
       </ul>
     </nav>
 
@@ -25,6 +26,14 @@
     width: 100vw;
   }
 
+  #greeting {
+    margin-left: 22vw;
+
+    border-left: solid 2px rgb(75, 71, 109);
+    border-right: solid 2px rgb(75, 71, 109);
+    border-radius: 10px;
+  }
+
   .nav-ul {
     display: flex;
     list-style: none;
@@ -41,7 +50,6 @@
     margin: 0;
     font-family: "Fira Code";
     font-size: 20px;
-    cursor: pointer;
 
     transition: background-color 0.2s;
   }
