@@ -9,9 +9,7 @@ it even has multiple lines
 
 and special characters that point ->
 
-neat.
-  `
-
+neat.`
 }
 
 export default note;
