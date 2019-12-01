@@ -16,12 +16,22 @@
 </template>
 
 <style>
-  body {
-    margin: 0;
+  :root {
+    --color-primary: #211F30;
+    --color-accent: rgb(75, 71, 109);
+
+    --text-primary: rgb(212, 209, 236);
+    --text-bright: rgb(240, 239, 245);
   }
 
+  body {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+
   #app {
-    background-color: #211F30;
+    background-color: var(--color-primary);
     height: 100vh;
     width: 100vw;
   }
@@ -29,8 +39,8 @@
   #greeting {
     margin-left: 22vw;
 
-    border-left: solid 2px rgb(75, 71, 109);
-    border-right: solid 2px rgb(75, 71, 109);
+    border-left: solid 2px var(--color-accent);
+    border-right: solid 2px var(--color-accent);
     border-radius: 10px;
   }
 
@@ -44,7 +54,8 @@
   .nav-item {
     display: inline;
 
-    color: rgb(212, 209, 236);
+    /* color: rgb(212, 209, 236); */
+    color: var(--text-primary);
 
     padding: 2em;
     margin: 0;
@@ -55,6 +66,6 @@
   }
 
   .active {
-    background-color:rgb(75, 71, 109);
+    background-color: var(--color-accent);
   }
 </style>
