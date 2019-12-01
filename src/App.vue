@@ -17,7 +17,6 @@
 
 <script>
 import Notification from "@/components/Notification.vue";
-// import showdown from "showdown";
 
 import note from "@/testNote.js";
 import disableAutoComplete from "@/disableAutocomplete.js";
@@ -43,8 +42,6 @@ export default {
     window.app = this;
     window.note = note;
 
-    // this.markdown = new showdown.Converter();
-
     window.setTimeout(() => {
       disableAutoComplete() ;
     }, 500);
@@ -66,13 +63,9 @@ export default {
     margin: 0;
     color: var(--text-primary);
     font-family: "Fira Code";
+    background-color: var(--color-primary);
   }
 
-  #app {
-    background-color: var(--color-primary);
-    height: 100vh;
-    width: 100vw;
-  }
 
   #greeting {
     margin-left: 22vw;
