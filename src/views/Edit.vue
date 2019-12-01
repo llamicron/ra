@@ -23,6 +23,15 @@ export default {
 
   mounted() {
     window.edit = this;
+
+    // Listen for cmd+s
+    document.addEventListener("keydown", (e) => {
+      if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+        e.preventDefault();
+        this.$parent.notify("Saved");
+        // TODO: Actually save it here
+      }
+    }, false);
   },
 
   methods: {

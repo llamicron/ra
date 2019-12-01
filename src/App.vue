@@ -43,7 +43,7 @@ export default {
     window.note = note;
 
     window.setTimeout(() => {
-      disableAutoComplete();
+      disableAutoComplete() ;
     }, 500);
   }
 }
