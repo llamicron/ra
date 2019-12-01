@@ -1,29 +1,8 @@
-# ra
+# Ra
+This is the best note taking app in the world, according to the author.
 
-## Project setup
-```
-npm install
-```
+And no one else.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+It has a user base of 1.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+100% user satisfaction.
